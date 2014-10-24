@@ -1,8 +1,12 @@
 {
   "name": "jquery-formatmoney",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "jQuery plugin to format text or input type money.",
+  "homepage": "https://github.com/sgyyz/jquery-formatmoney",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sgyyz/jquery-formatmoney"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +14,10 @@
     "jquery-formatmoney"
   ],
   "author": "Troy Yang",
-  "license": "ISC",
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/sgyyz/jquery-formatmoney/master/LICENSE"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",

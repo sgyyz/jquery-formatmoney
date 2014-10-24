@@ -2,6 +2,16 @@ module.exports = function(grunt) {
 	
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		meta: {
+            banner: "/*\n" +
+            " *  <%= pkg.name %> - v<%= pkg.version %>\n" +
+            " *  <%= pkg.description %>\n" +
+            " *  <%= pkg.homepage %>\n" +
+            " *\n" +
+            " *  Made by <%= pkg.author %>\n" +
+            " *  Under <%= pkg.license.type %> License (<%= pkg.license.url %>)\n" +
+            " */\n"
+        },
 		jshint: {
             all: ["Gruntfile.js", "src/**/*.js"],
             options: {
@@ -15,7 +25,10 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			options: {
-				banner: '/* \n *\t <%= pkg.name %>.<%= pkg.version %>.js \n *\t Created by <%= pkg.author %> \n *\t Since <%= grunt.template.today("yyyy-mm-dd") %> \n */\n'
+				banner: '<%= meta.banner %>',
+				mangle: {
+                    except: ["jQuery", "$"]
+                }
 			},
 			build: {
 				src: 'src/*.js',
