@@ -46,7 +46,7 @@
  							integerPart = '0';
  							decimalPart = virtualValue;
  						} else {
- 							decimalPart = virtualValue.slice(decimalPos + 1, virtualValue.length);
+ 							decimalPart = virtualValue.slice(decimalPos, virtualValue.length);
  						}
  					} else {
  						integerPart = virtualValue;
@@ -55,6 +55,8 @@
 					
 
 					// construct the new value
+					integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, options.thousands);
+
 
 					// construct the integer part
 					newValue = (isNegative ? '-' : '') + integerPart + options.decimal;

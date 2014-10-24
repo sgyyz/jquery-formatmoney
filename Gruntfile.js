@@ -34,12 +34,16 @@ module.exports = function(grunt) {
 				src: 'src/*.js',
 				dest: 'dist/<%= pkg.name %>.min.js'
 			}
+		},
+		watch: {
+			files: ['src/*.js']
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['jshint','clean', 'uglify']);
 };
