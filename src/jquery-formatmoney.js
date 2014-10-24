@@ -1,13 +1,4 @@
-/*
- *
- * jquery-formatmoney - v0.0.1
- *
- * jQuery plugin to format data entry in the input text or the text display in the form of money.
- * 
- * Made by Troy Young
- *
- */
- (function ($) {
+(function ($) {
  	"use strict";
  	if (!$.broswer) {
  		$.broswer = {};
