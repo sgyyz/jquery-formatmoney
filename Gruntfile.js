@@ -2,6 +2,12 @@ module.exports = function(grunt) {
 	
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		jshint: {
+            all: ["Gruntfile.js", "src/**/*.js"],
+            options: {
+                jshintrc: true
+            }
+        },
 		clean: {
 			build: {
 				src: 'dist/<%= pkg.name %>.min.js'
@@ -18,8 +24,9 @@ module.exports = function(grunt) {
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', ['clean', 'uglify']);
+	grunt.registerTask('default', ['jshint','clean', 'uglify']);
 };
