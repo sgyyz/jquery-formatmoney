@@ -3,13 +3,17 @@
 	<title>jquery-formatmoney demo</title>
 </head>
 <body>
-	<span class="money">1234.1</span>
+	<span class="money">-1.0</span>
+	<div>
+		<input class="input-money" type="text" value="234231.341"></input>
+	</div>
 </body>
 <script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="dist/jquery-formatmoney.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$('.money').formatmoney();
+		$('.money').formatmoney({'prefix': '$'});
+		$('.input-money').formatmoney({'prefix': '$'});
 	});
 </script>
 </html>
