@@ -8,11 +8,9 @@ In this plugin, you not only can format a plain text but also can format an inpu
 
 
 ##Usage
-`$target_node.formatmoney()` is the base configuration. It will format by the default options.
+`$target_node.formatmoney()` is the base configuration. It will format by the default options. Also you can add you own settings as you like, such as prefix, thousands symbol, decimal symbol and precision.
 
-##Notice
-Functions are in developing, please wait a while, it will come soon.
-
+More usages and settings, you can visit the `demo.html` in this repository. Later it will be put on the blog for your reference.
 
 ##Contact
 If you have any idea please contact me by sending it to [yangyongzhi1989@gmail.com](yangyongzhi1989@gmail.com), or you can put your issue [here](https://github.com/sgyyz/jquery-formatmoney/issues).
