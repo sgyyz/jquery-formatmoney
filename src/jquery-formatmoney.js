@@ -14,9 +14,7 @@
 	 			prefix: "",
 				thousands: ",",
 	 			decimal: ".",
-	 			precision: 2,
-	 			allowZero: false,
-	 			allowNegative: false
+	 			precision: 2
 	 		}, options);
  			return this.each(function() {
  				var $that = $(this),
@@ -43,8 +41,12 @@
  					// add the thousands symbol
  					integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, options.thousands);
 
- 					newValue = (isNegative(value) ? '-' : '') + integerPart + options.decimal + decimalPart;
+ 					newValue = (isNegative(value) ? '-' : '') + integerPart;
 
+                    if(options.precision > 0) {
+                        newValue = newValue + options.decimal + decimalPart;
+                    }
+                    
  					return setSymbol(newValue);
   				}
 

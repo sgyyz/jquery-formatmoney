@@ -1,19 +1,120 @@
-<html>
-<head>
-	<title>jquery-formatmoney demo</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Format Money Plugin Demos</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
-<body>
-	<span class="money">-1.0</span>
-	<div>
-		<input class="input-money" type="text" value="234231.341"></input>
+<body style="padding-bottom: 70px;">
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<h2>jQuery Format Money Plugin Demo <small style="font-size: 14px;">- <i>format money as you like</i>.</small></h2>
+		</div>
+	</div>
+	<div class="container" style="padding-top:70px;">
+		<div class="row">
+			You can download or fork this plugin <a href="https://github.com/sgyyz/jquery-formatmoney">here</a>. Or if you find any issues or you have any idea, please put it <a href="https://github.com/sgyyz/jquery-formatmoney/issues">here</a>.
+		</div>
+
+		<!-- Demo 1-->
+		<div class="row">
+			<h3 class="page-header"><span class="glyphicon glyphicon-tags"></span> Demo 1</h3>
+			<p>jQuery Format Money can used to format the text with your configuration.</p>
+			<p><strong>For Example</strong></p>
+			<p>Format the text <code>21.1523</code>, with prefix <code>$</code> and <code>2</code> decimal. </p>
+<pre>
+&lt;span class="text-money"&gt;21.1523&lt;span&gt;
+
+...
+$('.text-money').formatmoney({'prefix': '$'});
+</pre>
+			<p><strong>Result: </strong><span class="text-money">21.1523</span></p>
+		</div>
+		<!-- Demo 2 -->
+		<div class="row">
+			<h3 class="page-header"><span class="glyphicon glyphicon-tags"></span> Demo 2</h3>
+			<p>You can also use this plugin in your input text fields. When the page loaded, the plugin will help you format the default value. If this input field's value is not defined, it will be the zero with configuration format. Such as: </p>
+<pre>
+&lt;input type="text" class="demo-2-input-1"/&gt;
+
+...
+$('.demo-2-input-1').formatmoney({
+	'prefix': '$',
+	'precision': 3
+});
+</pre>
+			<p><strong>Result: </strong><input type="text" class="demo-2-input-1"/></p>
+			<p></p>
+			<p>Input field with default value: <code>$15231</code>, only allow integer number in the input field. It should display like <code>$15,231</code>.</p>
+<pre>
+&lt;input type="text" class="demo-2-input-2" value="$15231"/&gt;
+
+...
+$('.demo-2-input-2').formatmoney({
+	'prefix': '$',
+	'precision': 0
+});
+</pre>
+			<p><strong>Result: </strong><input type="text" class="demo-2-input-2" value="$15231"/></p>
+			<div class="alert alert-warning">
+				<i><strong>Note</strong>: </i>In the input field, it also allow the key events, so every input will add at the end of the value. As well, every delete will remove the last value.
+			</div>
+		</div>
+
+		<!-- Options -->
+		<div class="row">
+			<h3 class="page-header"><span class="glyphicon glyphicon-book"></span> Options for customer definition</h3>
+			<table class="table">
+				<tr>
+					<th>Option Name</th>
+					<th>Default Value</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>prefix</td>
+					<td>non</td>
+					<td>Define the money prefix like $, ￥ and other symbol. After set this option, the value of you money will add it at the first position.</td>
+				</tr>
+				<tr>
+					<td>thousands</td>
+					<td>,</td>
+					<td>The thousands symbol, it will help user to identify the value quickly and beauty.</td>
+				</tr>
+				<tr>
+					<td>decimal</td>
+					<td>.</td>
+					<td>User can set this symbol to separate the integer part and decimal part.</td>
+				</tr>
+				<tr>
+					<td>precision</td>
+					<td>2</td>
+					<td>This option used to define the decimal part length. The default setting will format the value like 1.22. If you set it to 0, it will only allow the integer numbers.</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 <script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/jquery-formatmoney.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$('.money').formatmoney({'prefix': '$'});
-		$('.input-money').formatmoney({'prefix': '$'});
+	$(function(){
+		// for demo 1
+		$('.text-money').formatmoney({'prefix': '$'});
+
+		// for demo 2 - 1
+		$('.demo-2-input-1').formatmoney({
+			'prefix': '$',
+			'precision': 3
+		});
+
+		// for demo 2 - 2
+		$('.demo-2-input-2').formatmoney({
+			'prefix': '$',
+			'precision': 0
+		});
 	});
 </script>
 </html>

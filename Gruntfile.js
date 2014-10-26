@@ -9,6 +9,8 @@ module.exports = function(grunt) {
             " *  <%= pkg.homepage %>\n" +
             " *\n" +
             " *  Made by <%= pkg.author %>\n" +
+            " *  Create at 2014-10-25\n\n" +
+            " *  Updated at <%= grunt.template.today('yyyy-mm-dd') %>\n\n" +
             " *  Under <%= pkg.license.type %> License (<%= pkg.license.url %>)\n" +
             " */\n"
         },
