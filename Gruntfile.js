@@ -37,16 +37,21 @@ module.exports = function(grunt) {
 				dest: 'dist/<%= pkg.name %>.min.js'
 			}
 		},
+		qunit: {
+          all: ["test/*.html"]
+        },
 		watch: {
-			files: ['src/*.js'],
-			tasks: ['jshint', 'clean', 'uglify']
+			files: ['src/*.js', 'test/*.html', 'test/*.js'],
+			tasks: ['jshint', 'test']
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks("grunt-contrib-qunit");
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
+	grunt.registerTask("test", ["jshint", "qunit"]);
 	grunt.registerTask('default', ['jshint', 'clean', 'uglify']);
 };
