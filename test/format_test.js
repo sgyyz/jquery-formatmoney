@@ -35,3 +35,10 @@ test("plain text decimal value test", function() {
 	equal(span.text(), "123.500", "decimal format");
 });
 
+test("plain text decimal value with prefix test", function() {
+	var span = $("#plaintext");
+	span.text('123.5');
+	span.formatmoney({precision: 3, prefix: "$"});
+	equal(span.text(), "$123.500", "decimal format");
+});
+
