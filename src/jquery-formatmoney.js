@@ -16,6 +16,7 @@
 	 			decimal: ".",
 	 			precision: 2
 	 		}, options);
+
  			return this.each(function() {
  				var $that = $(this),
  					isInputNode = $that.is('input[type="text"]');
@@ -64,10 +65,12 @@
  					return setSymbol('-' + value);
  				}
 
+                // move the cursort to the end
  				function moveCursort2End() {
+                    var range;
+
   					if($that.createTextRange) {
- 						console.log('createTextRange');
- 						var range = $that.createTextRange();
+ 						range = $that.createTextRange();
  						range.collapse(false);
  						range.select();
  					}
