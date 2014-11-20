@@ -161,7 +161,7 @@
                     if (key === undefined) {
                         return false;
                     }
-                    console.log(key);
+
                     if (key === 8 || key === 46 || key === 63272) { // backspace or delete key (with special case for safari)
                         e.preventDefault();
 
