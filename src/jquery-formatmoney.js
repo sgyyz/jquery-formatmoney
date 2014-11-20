@@ -149,6 +149,7 @@
  				function keydownEvent(e) {
  					e = e || window.event;
                     var key = e.which || e.charCode || e.keyCode,
+                        isInteger = false,
                         value,
                         splitValue,
                         integerPart,
@@ -160,15 +161,17 @@
                     if (key === undefined) {
                         return false;
                     }
-
+                    console.log(key);
                     if (key === 8 || key === 46 || key === 63272) { // backspace or delete key (with special case for safari)
                         e.preventDefault();
 
                         value = $that.val();
                         isNegative = /-/.test(value);
+                        isInteger = !/\./.test(value);
 
                         value = value.replace(new RegExp(options.thousands, 'gm'), '').replace(options.prefix, '').replace('-', '');
 
+                        // split the value and remove the last one value.
                         splitValue = value.split(options.decimal);
                         integerPart = splitValue[0];
                         decimalPart = splitValue[1];
@@ -176,7 +179,12 @@
                         decimalPart = integerPart[integerPart.length - 1] + decimalPart;
                        	integerPart = integerPart.substring(0, integerPart.length - 1);
 
-                       	constructValue = integerPart + options.decimal + decimalPart;
+                        // construct the new value based on the value's type: integer or decimal
+                        if(isInteger) {
+                            constructValue = integerPart;
+                        } else {
+                       	    constructValue = integerPart + options.decimal + decimalPart;
+                        }
 
                         newValue = Number(constructValue).toFixed(options.precision);
                         newValue = options.prefix + (isNegative ? '-' : '') + constructValue;
