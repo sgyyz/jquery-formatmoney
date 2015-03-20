@@ -1,4 +1,4 @@
-jquery-formatmoney[![Build Status](https://travis-ci.org/sgyyz/jquery-formatmoney.svg?branch=master)](https://travis-ci.org/sgyyz/jquery-formatmoney.svg?branch=master)
+jquery-formatmoney[![Build Status](https://travis-ci.org/sgyyz/jquery-formatmoney.svg?branch=master)](https://travis-ci.org/sgyyz/jquery-formatmoney)
 ==================
 
 ##Description
