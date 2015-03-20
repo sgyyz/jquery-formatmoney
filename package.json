@@ -8,7 +8,7 @@
     "url": "https://github.com/sgyyz/jquery-formatmoney"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "expresso test/*"
   },
   "keywords": [
     "jquery-formatmoney"
